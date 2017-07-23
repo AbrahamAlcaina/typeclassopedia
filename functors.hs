@@ -27,4 +27,8 @@ module FunctorsExercices
         fmap :: (a -> b) -> ITree -> ITree
         fmap g (Leaf h) = Leaf g . h
         fmap g (Node []) = Node []
-        fmap g (Node x:xs) = fmap g x : xs
+        fmap g (Node x:xs) = fmap g x : fmap g xs
+
+      -- 4 type of *->* thta is not a Functor
+      data NewType a = NewType (a -> a)
+      -- 5 compsition of functors is also a functor.
